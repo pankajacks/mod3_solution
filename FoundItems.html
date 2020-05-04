@@ -1,0 +1,24 @@
+<table class="table table-striped" ng-if="fictrl.isItemFound()">
+    <thead>
+      <tr>
+        <th>Sr. No.</th>
+        <th>Item Name</th>
+        <th>Short Name</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in fictrl.foundItems">
+        <td>{{$index+1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.shortName}}</td>
+        <td>{{item.description}}</td>
+        <td>
+            <button 
+            ng-click="fictrl.onRemove({index:$index})" 
+            class="btn btn-warning">Don't want this one!</button>
+        </td>
+      </tr>
+</ol>
+<div style="color:red; font-size:20px" ng-if="!fictrl.isItemFound()">Nothing Found!!</div>
